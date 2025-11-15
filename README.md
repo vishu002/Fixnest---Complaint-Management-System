@@ -1,111 +1,112 @@
-#Fixnest - Complaint Management System
-https://img.shields.io/badge/Java-11-blue
-https://img.shields.io/badge/JavaFX-13-orange
-https://img.shields.io/badge/MySQL-8.0-lightblue
-https://img.shields.io/badge/Maven-3.8-red
+# Fixnest - Complaint Management System
+![Java](https://img.shields.io/badge/Java-11%2B-blue)
+![JavaFX](https://img.shields.io/badge/JavaFX-UI%20Framework-orange)
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
+![Maven](https://img.shields.io/badge/Maven-Build%20Tool-red)
 
 A comprehensive Complaint Management System built with JavaFX and MySQL for educational institutions to manage student complaints efficiently.
 
-📋 Table of Contents
-Features
+## 📋 Table of Contents
 
-Screenshots
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Technology Stack](#technology-stack)
+- [Installation](#installation)
+- [Database Setup](#database-setup)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
 
-Technology Stack
+## ✨ Features
+## 👨‍🎓 Student Features
+- **User Registration & Login** - Secure authentication system
 
-Installation
+- **Student Dashboard** - Personalized user interface
 
-Database Setup
+- **File Complaints** - Submit new complaints with categories
 
-Usage
+- **Complaint Status Tracking** - Real-time status updates
 
-Project Structure
+- **Profile Management** - View and manage personal information
 
-Contributing
+## 👨‍💼 Admin Features
+- **Admin Login** - Separate admin authentication
 
-License
+- **Admin Dashboard** - Comprehensive management interface
 
-✨ Features
-👨‍🎓 Student Features
-User Registration & Login - Secure authentication system
+- **View All Complaints** - Monitor all student complaints
 
-Student Dashboard - Personalized user interface
+- **Complaint Resolution** - Update complaint status and add notes
 
-File Complaints - Submit new complaints with categories
+- **User Management** - Manage student accounts
 
-Complaint Status Tracking - Real-time status updates
-
-Profile Management - View and manage personal information
-
-👨‍💼 Admin Features
-Admin Login - Separate admin authentication
-
-Admin Dashboard - Comprehensive management interface
-
-View All Complaints - Monitor all student complaints
-
-Complaint Resolution - Update complaint status and add notes
-
-User Management - Manage student accounts
-
-🖼️ Screenshots
+## 🖼️ Screenshots
 (Add your screenshots here)
 
-Login Page
+- Login Page
 
-Student Dashboard
+- Student Dashboard
 
-Complaint Form
+- Complaint Form
 
-Admin Panel
+- Admin Panel
 
-Complaint Status View
+- Complaint Status View
 
-🛠️ Technology Stack
-Frontend: JavaFX 13, FXML, CSS
+## 🛠️ Technology Stack
+- Frontend: JavaFX 13, FXML, CSS
 
-Backend: Java 11
+- Backend: Java 11
 
-Database: MySQL 8.0
+- Database: MySQL 8.0
 
-Build Tool: Maven 3.8
+- Build Tool: Maven 3.8
 
-IDE: NetBeans (Recommended)
+- IDE: NetBeans (Recommended)
 
-📥 Installation
-Prerequisites
-Java JDK 11 or higher
+## 📥 Installation
+### Prerequisites
+- Java JDK 11 or higher
 
-MySQL Server 8.0
+- MySQL Server 8.0
 
-Maven 3.8+
+- Maven 3.8+
 
-NetBeans IDE (Optional)
+- NetBeans IDE (Optional)
 
-Step 1: Clone the Repository
+### Step 1: Clone the Repository
+```
 bash
 git clone https://github.com/yourusername/fixnest.git
 cd fixnest
-Step 2: Configure Database
-Install MySQL Server
+```
+### Step 2: Configure Database
+- Install MySQL Server
 
-Create a new database named complaint_management
+- Create a new database named complaint_management
 
-Update database credentials in DatabaseConfig.java
+- Update database credentials in DatabaseConfig.java
 
-Step 3: Build the Project
+### Step 3: Build the Project
+```
 bash
 mvn clean compile
-Step 4: Run the Application
+```
+### Step 4: Run the Application
+```
 bash
 mvn javafx:run
-Or run directly from your IDE by executing App.java
+// Or run directly from your IDE by executing App.java
+```
+## 🗄️ Database Setup
 
-🗄️ Database Setup
-Create Database and Tables
-Execute the following SQL script in your MySQL server:
+- Create Database and Tables
+- Execute the following SQL script in your MySQL server:
 
-sql
+### sql
+```
 CREATE DATABASE complaint_management;
 USE complaint_management;
 
@@ -131,47 +132,50 @@ CREATE TABLE complaints (
     admin_notes TEXT,
     FOREIGN KEY (student_id) REFERENCES users(id)
 );
-
+```
 -- Insert default admin user
+```
 INSERT INTO users (username, password, email, full_name, user_type) 
 VALUES ('admin', 'admin123', 'admin@fixnest.com', 'System Administrator', 'ADMIN');
 Database Configuration
 Update the database connection details in src/main/java/com/cms/fixnest/config/DatabaseConfig.java:
-
-java
+```
+-- java
+```
 private static final String URL = "jdbc:mysql://localhost:3306/complaint_management";
 private static final String USERNAME = "root";
 private static final String PASSWORD = "your_mysql_password";
-🚀 Usage
-For Students
-Register: Create a new student account
+```
+## 🚀 Usage
+### For Students
+- Register: Create a new student account
 
-Login: Access your dashboard
+- Login: Access your dashboard
 
-File Complaint: Submit new complaints with details
+- File Complaint: Submit new complaints with details
 
-Track Status: Monitor complaint resolution progress
+- Track Status: Monitor complaint resolution progress
 
-Logout: Secure session termination
+- Logout: Secure session termination
 
-For Administrators
-Login: Use admin credentials
+### For Administrators
+- Login: Use admin credentials
 
-Dashboard: Access admin control panel
+- Dashboard: Access admin control panel
 
-View Complaints: See all submitted complaints
+- View Complaints: See all submitted complaints
 
-Manage Status: Update complaint resolution status
+- Manage Status: Update complaint resolution status
 
-Add Notes: Provide feedback and updates
+- Add Notes: Provide feedback and updates
 
-Default Login Credentials
-Admin: username: admin, password: admin123
+### Default Login Credentials
+- Admin: username: admin, password: admin123
 
-Students: Register new accounts
+- Students: Register new accounts
 
-📁 Project Structure
-text
+## 📁 Project Structure
+```
 Fixnest/
 ├── src/main/java/
 │   ├── module-info.java
@@ -206,104 +210,82 @@ Fixnest/
 │   ├── admin_dashboard.fxml
 │   └── view_complaints.fxml
 └── pom.xml
-🎯 Key Components
-Models
-User: Manages user data and authentication
+```
+## 🎯 Key Components
+### Models
+- User: Manages user data and authentication
 
-Complaint: Handles complaint information and status
+- Complaint: Handles complaint information and status
 
-Services
-UserService: User registration, login, and management
+### Services
+- UserService: User registration, login, and management
 
-ComplaintService: Complaint CRUD operations and status updates
+- ComplaintService: Complaint CRUD operations and status updates
 
-Controllers
-Login/Register: Authentication handling
+### Controllers
+- Login/Register: Authentication handling
 
-Dashboards: User interface management
+- Dashboards: User interface management
 
-Complaint Handlers: Form processing and status tracking
+- Complaint Handlers: Form processing and status tracking
 
-Utilities
-SceneManager: Navigation and scene management
+### Utilities
+- SceneManager: Navigation and scene management
 
-DatabaseConfig: Database connection configuration
+- DatabaseConfig: Database connection configuration
 
-🤝 Contributing
-We welcome contributions! Please follow these steps:
+## 🤝 Contributing
+- We welcome contributions! Please follow these steps:
 
-Fork the repository
+- Fork the repository
 
-Create a feature branch (git checkout -b feature/AmazingFeature)
+- Create a feature branch (git checkout -b feature/AmazingFeature)
 
-Commit your changes (git commit -m 'Add some AmazingFeature')
+- Commit your changes (git commit -m 'Add some AmazingFeature')
 
-Push to the branch (git push origin feature/AmazingFeature)
+- Push to the branch (git push origin feature/AmazingFeature)
 
-Open a Pull Request
+- Open a Pull Request
 
-Development Guidelines
+### Development Guidelines
 Follow Java coding conventions
-
 Write meaningful commit messages
-
 Test all features before submitting
-
 Update documentation accordingly
 
-📝 License
+## 📝 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-🐛 Troubleshooting
-Common Issues
+## 🐛 Troubleshooting
+### Common Issues
 Database Connection Failed
-
 Verify MySQL service is running
-
 Check database credentials in DatabaseConfig.java
-
 Ensure database and tables are created
-
 JavaFX Not Loading
-
 Verify JavaFX is in classpath
-
 Check module-info.java configuration
-
 Ensure correct Java version (11+)
-
 Maven Build Errors
-
 Clean and rebuild project
-
 Check internet connection for dependencies
-
 Verify Maven configuration
-
 Getting Help
 Create an issue on GitHub
-
 Check existing issues for solutions
-
 Contact the development team
 
-📞 Support
+## 📞 Support
 For support and questions:
-
 📧 Email: support@fixnest.com
-
 🐛 Issues: GitHub Issues
-
 💬 Discussions: GitHub Discussions
 
-🙏 Acknowledgments
-JavaFX Community
-
-MySQL Development Team
-
-Maven Project
-
-NetBeans IDE Team
+## 🙏 Acknowledgments
+- JavaFX Community
+- MySQL Development Team
+- Maven Project
+- NetBeans IDE Team
 
 <div align="center">
 Made with ❤️ by the Fixnest Team
